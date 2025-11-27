@@ -1,0 +1,11 @@
+name = "mailauth"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespace for Sessions
+# Run `wrangler kv:namespace create SESSIONS` to get the ID for production
+# For local dev, this is handled automatically
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder, will work locally
+preview_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
