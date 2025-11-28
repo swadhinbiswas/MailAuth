@@ -283,7 +283,7 @@ import time
 email = "user@gmail.com"
 resp = requests.post("https://mailauth.swadhin.workers.dev/initiate",
     json={"email": email, "provider": "google"})
-data = resp.json()
+resp = requests.post("https://mailauth.roastlang.wiki/initiate",
 
 # 2. Open Browser
 print(f"Please login: {data['auth_url']}")
@@ -293,9 +293,9 @@ webbrowser.open(data['auth_url'])
 session_id = data['session_id']
 while True:
     time.sleep(2)
-    poll = requests.get(f"https://mailauth.swadhin.workers.dev/poll/{session_id}")
+while True:
     if poll.json().get("status") == "authenticated":
-        print("Success!", poll.json())
+  poll = requests.get(f"https://mailauth.roastlang.wiki/poll/{session_id}")
         break</code></pre>
           </div>
         </section>

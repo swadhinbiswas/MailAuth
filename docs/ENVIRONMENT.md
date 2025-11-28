@@ -49,13 +49,13 @@ Only add the providers you plan to support. Missing client credentials for a pro
   1.  Go to the Google Cloud Console: https://console.cloud.google.com/
   2.  Create a project, enable the **Gmail API**.
   3.  OAuth consent screen → set type to External (or Internal for orgs). Add scopes: at minimum `https://www.googleapis.com/auth/gmail.readonly` or `https://mail.google.com/` for full mail access.
-  4.  Credentials → Create OAuth Client ID → Web application. Add Redirect URI(s): e.g. `https://<your-worker>.workers.dev/callback` and `http://localhost:8787/callback` for testing.
+  4.  Credentials → Create OAuth Client ID → Web application. Add Redirect URI(s): e.g. `https://mailauth.roastlang.wiki/callback` and `http://localhost:8787/callback` for testing.
   5.  Copy `Client ID` and `Client Secret` into the environment.
 
 - **Microsoft (Outlook / Office 365)**
 
   1.  Azure Portal → App registrations → New registration.
-  2.  Set supported account types and Redirect URI (Web): `https://<your-worker>.workers.dev/callback`.
+  2.  Set supported account types and Redirect URI (Web): `https://mailauth.roastlang.wiki/callback`.
   3.  API permissions → add delegated permissions for Microsoft Graph Mail (e.g., `Mail.Read`, `Mail.Send`).
   4.  Certificates & secrets → New client secret → copy value.
 
@@ -96,7 +96,8 @@ Always request the minimum scopes you need.
 
 ## Redirect URI examples
 
-- Production (Cloudflare Workers): `https://<your-worker-subdomain>.workers.dev/callback`
+- Hosted public instance: `https://mailauth.roastlang.wiki/callback`
+- Production (Cloudflare Workers self-hosted): `https://<your-worker-subdomain>.workers.dev/callback`
 - Custom domain: `https://auth.example.com/callback`
 - Local dev: `http://localhost:8787/callback`
 
@@ -140,9 +141,9 @@ Some providers (Google) require HTTPS for redirect URIs for production apps — 
 Example curl-based sanity check (replace values appropriately):
 
 ```bash
-curl -X POST https://<your-worker>.workers.dev/initiate \
-	-H "Content-Type: application/json" \
-	-d '{"email":"user@gmail.com"}'
+curl -X POST https://mailauth.roastlang.wiki/initiate \
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@gmail.com"}'
 ```
 
 If your worker responds with an `auth_url`, opening that in a browser should show the provider consent screen.

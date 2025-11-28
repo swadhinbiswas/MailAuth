@@ -7,8 +7,6 @@ compatibility_date = "2024-01-01"
 # For local dev, this is handled automatically
 [[kv_namespaces]]
 binding = "SESSIONS"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder, will work locally
-preview_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
+id = "2205485220204fc6ae191d6e66abf0c0"
 [site]
 bucket = "./public"

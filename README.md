@@ -33,7 +33,8 @@
 ### Option 1: Use the Hosted Instance
 
 You can use our public instance to test your application immediately:
-`https://mailauth.swadhin.workers.dev`
+You can use our public instance to test your application immediately:
+`https://mailauth.roastlang.wiki`
 
 ### Option 2: Self-Host (Recommended)
 
@@ -70,15 +71,15 @@ Deploy your own instance for full control over data and rate limits.
         5.  Go to **APIs & Services > Credentials**.
             -   **Create Credentials > OAuth client ID**.
             -   Application type: **Web application**.
-            -   **Authorized redirect URIs**: `https://your-worker-url.workers.dev/callback` (or `http://localhost:8787/callback` for local testing).
+            -   **Authorized redirect URIs**: `https://mailauth.roastlang.wiki/callback` (or `http://localhost:8787/callback` for local testing).
         6.  Copy the Client ID and Client Secret.
 
         ### 2. Microsoft (Outlook / Office 365)
         1.  Go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
         2.  Click **New registration**.
-            -   Name: `MailAuth`
-            -   Supported account types: **Accounts in any organizational directory and personal Microsoft accounts**.
-            -   Redirect URI: **Web** -> `https://your-worker-url.workers.dev/callback`.
+          -   Name: `MailAuth`
+          -   Supported account types: **Accounts in any organizational directory and personal Microsoft accounts**.
+          -   Redirect URI: **Web** -> `https://mailauth.roastlang.wiki/callback`.
         3.  Copy the **Application (client) ID**.
         4.  Go to **Certificates & secrets > Client secrets**.
             -   Click **New client secret**.
@@ -88,7 +89,7 @@ Deploy your own instance for full control over data and rate limits.
         1.  Go to the [Yahoo Developer Network](https://developer.yahoo.com/apps/).
         2.  Click **Create an App**.
             -   Application Name: `MailAuth`
-            -   Redirect URI(s): `https://your-worker-url.workers.dev/callback`.
+            -   Redirect URI(s): `https://mailauth.roastlang.wiki/callback`.
             -   API Permissions: **Mail (Read/Write)**.
         3.  Create the app and copy the Client ID and Client Secret.
 
@@ -102,7 +103,7 @@ Deploy your own instance for full control over data and rate limits.
         2.  Click **Create new client**.
             -   Name: `MailAuth`
             -   Platforms: **Web services**.
-            -   Redirect URI: `https://your-worker-url.workers.dev/callback`.
+            -   Redirect URI: `https://mailauth.roastlang.wiki/callback`.
             -   Permissions: **Mail API** -> `Read and send emails` (or similar).
         3.  Create and copy Client ID and Client Secret.
 
