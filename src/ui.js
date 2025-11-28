@@ -276,27 +276,27 @@ export const homePage = () =>
           <div class="glass-card p-6 rounded-xl border border-white/10">
             <h4 class="text-sm font-bold text-gray-300 uppercase tracking-wider mb-4">Python Example</h4>
             <pre class="bg-darker p-4 rounded-lg overflow-x-auto text-sm text-gray-300 font-mono border border-white/10"><code>import requests
-import webbrowser
-import time
+      import webbrowser
+      import time
 
-# 1. Initiate Login
-email = "user@gmail.com"
-resp = requests.post("https://mailauth.swadhin.workers.dev/initiate",
-    json={"email": email, "provider": "google"})
-resp = requests.post("https://mailauth.roastlang.wiki/initiate",
+      # 1. Initiate Login
+      email = "user@gmail.com"
+      resp = requests.post("https://mailauth.roastlang.wiki/initiate",
+        json={"email": email, "provider": "google"})
+      data = resp.json()
 
-# 2. Open Browser
-print(f"Please login: {data['auth_url']}")
-webbrowser.open(data['auth_url'])
+      # 2. Open Browser
+      print(f"Please login: {data['auth_url']}")
+      webbrowser.open(data['auth_url'])
 
-# 3. Poll for Token
-session_id = data['session_id']
-while True:
-    time.sleep(2)
-while True:
-    if poll.json().get("status") == "authenticated":
-  poll = requests.get(f"https://mailauth.roastlang.wiki/poll/{session_id}")
-        break</code></pre>
+      # 3. Poll for Token
+      session_id = data['session_id']
+      while True:
+        time.sleep(2)
+        poll = requests.get(f"https://mailauth.roastlang.wiki/poll/{session_id}")
+        if poll.json().get("status") == "authenticated":
+          print("Success!", poll.json())
+          break</code></pre>
           </div>
         </section>
 

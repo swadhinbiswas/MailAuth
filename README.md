@@ -56,10 +56,7 @@ Deploy your own instance for full control over data and rate limits.
 3.  **Configure Secrets**
     Obtain Client IDs and Secrets for the providers you want to support, then set them in Cloudflare:
 
-        <details>
-        <summary><strong>📚 How to Get OAuth Credentials (Click to Expand)</strong></summary>
-
-        ### 1. Google
+### 1. Google
         1.  Go to the [Google Cloud Console](https://console.cloud.google.com/).
         2.  Create a new project.
         3.  Go to **APIs & Services > Library** and enable the **Gmail API**.
@@ -74,7 +71,7 @@ Deploy your own instance for full control over data and rate limits.
             -   **Authorized redirect URIs**: `https://mailauth.roastlang.wiki/callback` (or `http://localhost:8787/callback` for local testing).
         6.  Copy the Client ID and Client Secret.
 
-        ### 2. Microsoft (Outlook / Office 365)
+### 2. Microsoft (Outlook / Office 365)
         1.  Go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
         2.  Click **New registration**.
           -   Name: `MailAuth`
@@ -85,50 +82,48 @@ Deploy your own instance for full control over data and rate limits.
             -   Click **New client secret**.
             -   Copy the **Value** (not the Secret ID).
 
-        ### 3. Yahoo
-        1.  Go to the [Yahoo Developer Network](https://developer.yahoo.com/apps/).
-        2.  Click **Create an App**.
-            -   Application Name: `MailAuth`
-            -   Redirect URI(s): `https://mailauth.roastlang.wiki/callback`.
-            -   API Permissions: **Mail (Read/Write)**.
+ ### 3. Yahoo
+- **Go to the [Yahoo Developer Network](https://developer.yahoo.com/apps/).**
+- Click **Create an App**.
+- Application Name: `MailAuth`
+-   Redirect URI(s): `https://mailauth.roastlang.wiki/callback`.
+-   API Permissions: **Mail (Read/Write)**.
         3.  Create the app and copy the Client ID and Client Secret.
 
-        ### 4. AOL
-        1.  Go to [AOL Developer](https://developer.aol.com/).
-        2.  *Note: AOL is now part of Yahoo/Verizon. You may need to use the Yahoo Developer Network or specific AOL Oauth endpoints depending on your account type. Often, Yahoo credentials work for AOL if configured correctly, but check for a specific AOL App creation flow if available.*
-        3.  If using Yahoo Dev Network, follow Yahoo steps but look for AOL specific scopes if listed.
+### 4. AOL
+- Go to [AOL Developer](https://developer.aol.com/).
+- *Note: AOL is now part of Yahoo/Verizon. You may need to use the Yahoo Developer Network or specific AOL Oauth endpoints depending on your account type. Often, Yahoo credentials work for AOL if configured correctly, but check for a specific AOL App creation flow if available.*
+- If using Yahoo Dev Network, follow Yahoo steps but look for AOL specific scopes if listed.
 
-        ### 5. Yandex
-        1.  Go to [Yandex OAuth](https://oauth.yandex.com/).
-        2.  Click **Create new client**.
-            -   Name: `MailAuth`
-            -   Platforms: **Web services**.
-            -   Redirect URI: `https://mailauth.roastlang.wiki/callback`.
-            -   Permissions: **Mail API** -> `Read and send emails` (or similar).
-        3.  Create and copy Client ID and Client Secret.
+### 5. Yandex
+- Go to [Yandex OAuth](https://oauth.yandex.com/).
+- Click **Create new client**.
+     -   Name: `MailAuth`
+     -   Platforms: **Web services**.
+     -   Redirect URI: `https://mailauth.roastlang.wiki/callback`.
+     -   Permissions: **Mail API** -> `Read and send emails` (or similar).
+-  Create and copy Client ID and Client Secret.
 
-        ### 6. Zoho
-        1.  Go to the [Zoho Developer Console](https://api-console.zoho.com/).
-        2.  Click **Add Client ID**.
-        3.  Client Name: `MailAuth`.
-        4.  Client Domain: `your-website.com` (or placeholder).
-        5.  Authorized Redirect URIs: `https://your-worker-url.workers.dev/callback`.
-        6.  Copy Client ID and Client Secret.
+### 6. Zoho
+- Go to the [Zoho Developer Console](https://api-console.zoho.com/).
+- Click **Add Client ID**.
+- Client Name: `MailAuth`.
+- Client Domain: `your-website.com` (or placeholder).
+- Authorized Redirect URIs: `https://your-worker-url.workers.dev/callback`.
+- Copy Client ID and Client Secret.
 
-        ### 7. Mail.ru
-        1.  Go to [Mail.ru for Developers](https://api.mail.ru/sites/my/).
-        2.  Create a new site/app.
-        3.  Download the `receiver.html` file and host it (or follow their verification process).
-        4.  Once verified, go to settings to find ID and Secret.
-        5.  *Note: Mail.ru access often requires approval for IMAP scopes.*
+ ### 7. Mail.ru
+ - Go to [Mail.ru for Developers](https://api.mail.ru/sites/my/).
+- Create a new site/app.
+- Download the `receiver.html` file and host it (or follow their verification process).
+- Once verified, go to settings to find ID and Secret.
+- *Note: Mail.ru access often requires approval for IMAP scopes.*
 
-        </details>
-
-        ```bash
+```bash
         npx wrangler secret put GOOGLE_CLIENT_ID
         npx wrangler secret put GOOGLE_CLIENT_SECRET
         # Repeat for other providers...
-        ```
+```
 
 4.  **Create Session Storage**
 
