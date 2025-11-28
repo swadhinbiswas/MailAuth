@@ -57,30 +57,30 @@ Deploy your own instance for full control over data and rate limits.
     Obtain Client IDs and Secrets for the providers you want to support, then set them in Cloudflare:
 
 ### 1. Google
-        1.  Go to the [Google Cloud Console](https://console.cloud.google.com/).
-        2.  Create a new project.
-        3.  Go to **APIs & Services > Library** and enable the **Gmail API**.
-        4.  Go to **APIs & Services > OAuth consent screen**.
-            -   Select **External**.
-            -   Fill in required details.
-            -   Add scope: `https://mail.google.com/`.
-            -   Add test users (your email).
-        5.  Go to **APIs & Services > Credentials**.
-            -   **Create Credentials > OAuth client ID**.
-            -   Application type: **Web application**.
-            -   **Authorized redirect URIs**: `https://mailauth.roastlang.wiki/callback` (or `http://localhost:8787/callback` for local testing).
-        6.  Copy the Client ID and Client Secret.
+- Go to the [Google Cloud Console](https://console.cloud.google.com/).
+- Create a new project.
+- Go to **APIs & Services > Library** and enable the **Gmail API**.
+- Go to **APIs & Services > OAuth consent screen**.
+     -   Select **External**.
+     -   Fill in required details.
+     -   Add scope: `https://mail.google.com/`.
+    -   Add test users (your email).
+- Go to **APIs & Services > Credentials**.
+    -   **Create Credentials > OAuth client ID**.
+    -   Application type: **Web application**.
+    -   **Authorized redirect URIs**: `https://mailauth.roastlang.wiki/callback` (or `http://localhost:8787/callback` for local testing).
+- Copy the Client ID and Client Secret.
 
 ### 2. Microsoft (Outlook / Office 365)
-        1.  Go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
-        2.  Click **New registration**.
-          -   Name: `MailAuth`
-          -   Supported account types: **Accounts in any organizational directory and personal Microsoft accounts**.
-          -   Redirect URI: **Web** -> `https://mailauth.roastlang.wiki/callback`.
-        3.  Copy the **Application (client) ID**.
-        4.  Go to **Certificates & secrets > Client secrets**.
-            -   Click **New client secret**.
-            -   Copy the **Value** (not the Secret ID).
+- Go to the [Azure Portal](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+- Click **New registration**.
+     -   Name: `MailAuth`
+     -   Supported account types: **Accounts in any organizational directory and personal Microsoft accounts**.
+     -   Redirect URI: **Web** -> `https://mailauth.roastlang.wiki/callback`.
+- Copy the **Application (client) ID**.
+- Go to **Certificates & secrets > Client secrets**.
+     -   Click **New client secret**.
+     -   Copy the **Value** (not the Secret ID).
 
  ### 3. Yahoo
 - **Go to the [Yahoo Developer Network](https://developer.yahoo.com/apps/).**
