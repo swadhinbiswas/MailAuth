@@ -5,6 +5,7 @@ export const layout = (content, title = "MailAuth") => `
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
+  <link rel="icon" href="/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -43,16 +44,16 @@ export const layout = (content, title = "MailAuth") => `
   </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    
+
     body { font-family: 'Inter', sans-serif; }
-    
+
     .glass {
       background: rgba(30, 41, 59, 0.4);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
+
     .glass-card {
       background: rgba(30, 41, 59, 0.6);
       backdrop-filter: blur(16px);
@@ -66,25 +67,25 @@ export const layout = (content, title = "MailAuth") => `
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #0f172a; 
+      background: #0f172a;
     }
     ::-webkit-scrollbar-thumb {
-      background: #334155; 
+      background: #334155;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #475569; 
+      background: #475569;
     }
   </style>
 </head>
 <body class="bg-darker text-slate-200 min-h-screen flex flex-col selection:bg-primary/30 selection:text-white overflow-x-hidden">
-  
+
   <!-- Navbar -->
   <nav class="fixed w-full z-50 glass border-b border-white/5 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,7 +99,7 @@ export const layout = (content, title = "MailAuth") => `
           </div>
           <span class="font-bold text-xl tracking-tight text-white group-hover:text-primary transition-colors">MailAuth</span>
         </div>
-        
+
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-1">
             <a href="#features" class="hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all">Features</a>
@@ -117,7 +118,7 @@ export const layout = (content, title = "MailAuth") => `
       <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] animate-pulse-slow"></div>
       <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/10 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
     </div>
-    
+
     ${content}
   </main>
 
@@ -132,13 +133,14 @@ export const layout = (content, title = "MailAuth") => `
 
 </body>
 </html>
-`
+`;
 
-export const homePage = () => layout(`
+export const homePage = () =>
+  layout(`
   <!-- Hero Section -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
-      
+
       <!-- Left Column: Text -->
       <div class="text-left animate-slide-up">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-6">
@@ -153,9 +155,9 @@ export const homePage = () => layout(`
           Universal Email <br/>
           <span class="gradient-text">OAuth2 Authentication</span>
         </h1>
-        
+
         <p class="text-lg text-gray-400 mb-8 leading-relaxed max-w-xl">
-          The missing authentication layer for your TUI, CLI, and Desktop email apps. 
+          The missing authentication layer for your TUI, CLI, and Desktop email apps.
           Securely connect with Google, Microsoft, Yahoo, and more via a single, unified API.
         </p>
 
@@ -175,17 +177,17 @@ export const homePage = () => layout(`
         <div class="glass-card p-8 rounded-2xl relative">
           <h2 class="text-2xl font-bold mb-2 text-white">Try it Live</h2>
           <p class="text-gray-400 text-sm mb-6">Enter your email to auto-detect provider and start the OAuth flow.</p>
-          
+
           <form id="demoForm" class="space-y-5">
             <div>
               <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-2 ml-1">Email Address</label>
               <div class="relative group">
-                <input type="email" id="email" required 
+                <input type="email" id="email" required
                   class="w-full bg-darker border border-white/10 rounded-lg px-4 py-3 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 outline-none transition-all placeholder-gray-600 text-white"
                   placeholder="name@example.com">
               </div>
             </div>
-            
+
             <button type="submit" id="submitBtn"
               class="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-blue-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed">
               Connect Account
@@ -226,7 +228,7 @@ export const homePage = () => layout(`
         <h3 class="text-xl font-bold mb-2">Secure Proxy</h3>
         <p class="text-gray-400 text-sm">Your Client Secrets stay safe on the server. The client only receives the tokens it needs.</p>
       </div>
-      
+
       <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
         <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 text-accent">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
@@ -248,7 +250,7 @@ export const homePage = () => layout(`
   <!-- Documentation Section -->
   <div id="documentation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
     <div class="grid lg:grid-cols-3 gap-12">
-      
+
       <!-- Sidebar -->
       <div class="lg:col-span-1">
         <div class="sticky top-24">
@@ -263,14 +265,14 @@ export const homePage = () => layout(`
 
       <!-- Content -->
       <div class="lg:col-span-2 space-y-16">
-        
+
         <!-- Quick Start -->
         <section id="quick-start">
           <h3 class="text-xl font-bold mb-4 text-white flex items-center gap-2">
             <span class="text-primary">01.</span> Quick Start (Cloud)
           </h3>
           <p class="text-gray-400 mb-6">Use our hosted instance to get started immediately without deploying anything.</p>
-          
+
           <div class="glass-card p-6 rounded-xl border border-white/10">
             <h4 class="text-sm font-bold text-gray-300 uppercase tracking-wider mb-4">Python Example</h4>
             <pre class="bg-darker p-4 rounded-lg overflow-x-auto text-sm text-gray-300 font-mono border border-white/10"><code>import requests
@@ -279,7 +281,7 @@ import time
 
 # 1. Initiate Login
 email = "user@gmail.com"
-resp = requests.post("https://mailauth.swadhin.workers.dev/initiate", 
+resp = requests.post("https://mailauth.swadhin.workers.dev/initiate",
     json={"email": email, "provider": "google"})
 data = resp.json()
 
@@ -303,7 +305,7 @@ while True:
           <h3 class="text-xl font-bold mb-4 text-white flex items-center gap-2">
             <span class="text-primary">02.</span> API Reference
           </h3>
-          
+
           <div class="space-y-4">
             <div class="glass-card p-4 rounded-xl border border-white/10">
               <div class="flex items-center justify-between mb-2">
@@ -336,7 +338,7 @@ while True:
             <span class="text-primary">03.</span> Self Hosting
           </h3>
           <p class="text-gray-400 mb-6">Deploy to your own Cloudflare Workers account for full control.</p>
-          
+
           <div class="glass-card p-6 rounded-xl border border-white/10">
             <ol class="list-decimal list-inside space-y-4 text-gray-300 text-sm">
               <li>Clone the repository.</li>
@@ -365,7 +367,7 @@ wrangler secret put GOOGLE_CLIENT_SECRET
       const errorDiv = document.getElementById('errorMsg');
       const resultDiv = document.getElementById('result');
       const errorText = document.getElementById('errorText');
-      
+
       // Reset state
       errorDiv.classList.add('hidden');
       resultDiv.classList.add('hidden');
@@ -389,18 +391,18 @@ wrangler secret put GOOGLE_CLIENT_SECRET
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, provider })
         });
-        
+
         const data = await res.json();
-        
+
         if (data.error) throw new Error(data.error);
-        
+
         resultDiv.classList.remove('hidden');
         const link = document.getElementById('authLink');
         const providerSpan = document.getElementById('providerName');
-        
+
         link.href = data.auth_url;
         providerSpan.textContent = provider;
-        
+
         // Auto open
         window.open(data.auth_url, '_blank');
 
@@ -413,9 +415,11 @@ wrangler secret put GOOGLE_CLIENT_SECRET
       }
     });
   </script>
-`)
+`);
 
-export const successPage = () => layout(`
+export const successPage = () =>
+  layout(
+    `
   <div class="min-h-[60vh] flex items-center justify-center animate-slide-up">
     <div class="max-w-md w-full mx-auto text-center">
       <div class="relative w-24 h-24 mx-auto mb-8">
@@ -424,13 +428,15 @@ export const successPage = () => layout(`
           <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
         </div>
       </div>
-      
+
       <h1 class="text-4xl font-bold mb-4 text-white">Authentication Successful</h1>
       <p class="text-gray-400 mb-10 text-lg">You have successfully logged in. You can now close this window and return to your application.</p>
-      
+
       <button onclick="window.close()" class="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl font-medium transition-all text-white hover:scale-105">
         Close Window
       </button>
     </div>
   </div>
-`, "Success")
+`,
+    "Success"
+  );
